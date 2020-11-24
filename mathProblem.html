@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Problems</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+
+        let accept = confirm(' Welcome to Math Problems \n\n ** Please be careful answering each of the questions or else you will have to start all over again if answered incorrectly ** \n\n Click OK to start');
+        let name = prompt('May I ask your name please?')
+        let choose = prompt('Choose one [ Math or History ]')
+
+        switch (true) {
+            case choose === 'Math' || choose === 'math':
+                confirm(' You chose [ Math ] is it correct? \n Press OK to begin');
+                math();
+                break;
+            case choose === 'History' || choose === 'history':
+                confirm(' You chose [ History ] is it correct? \n Press OK to begin');
+                history()
+                break;
+            default:
+                alert('Invalid please try again')
+                break;
+
+        }
+        function math() {
+            let prob_one = prompt(`5 + 5`);
+            switch (true) {
+                case prob_one === '10':
+                    alert('Right!');
+                    let prob_two = prompt('25 / 5');
+                    switch (true) {
+                        case prob_two === '5':
+                            alert('Excellent!');
+                            let prob_three = prompt('132 / 116');
+                            switch (true) {
+                                case prob_three === '16':
+                                    alert('Good Job!');
+                                    let prob_four = prompt('166 - 12');
+                                    switch (true) {
+                                        case prob_four === '13' || prob_four === '13.8':
+                                            alert('Good Job!');
+                                            let final = prompt('322.06 * 7.11')
+                                            switch (true) {
+                                                case final === '2289' || final === '2289.84':
+                                                    alert('Good Job!');
+                                                    conclusion()
+                                                    break;
+                                                case final === '':
+                                                    alert('No answer');
+                                                    break;
+                                                default:
+                                                    alert('Wrong please try again');
+                                                    break;
+                                            }
+                                            break;
+                                        case prob_four === '':
+                                            alert('No answer');
+                                            break;
+                                        default:
+                                            alert('Wrong please try again');
+                                            break;
+                                    }
+                                    break;
+                                case prob_three === '':
+                                    alert('No answer');
+                                    break;
+                                default:
+                                    alert('Wrong please try again');
+                                    break;
+                            }
+                            break;
+                        case prob_two === '':
+                            alert('No answer');
+                            break;
+                        default:
+                            alert('Wrong please try again');
+                            break;
+                    }
+                    break;
+                case prob_one === '':
+                    alert('No answer');
+                    break;
+                default:
+                    alert('Wrong please try again');
+                    break;
+            }
+        }
+
+        function history() {
+            let ques_one = prompt('When did the did the United States aquired it\'s independence? Enter the full date.')
+            switch (true) {
+                case ques_one === 'July 4, 1776' || ques_one === 'July 4th 1776' || ques_one === 'july 4, 1776' || ques_one === 'july 4th 1776':
+                    alert('Nice!');
+                    ques_two();
+                    ques_three();
+                    ques_four();
+                    ques_five();
+                    conclusion();
+                    break;
+                case ques_one === '':
+                    alert('No answer');
+                    break;
+                default:
+                    alert('Wrong please try again')
+                    break;
+            }
+        }
+
+        function ques_two() {
+            let ques_two = prompt('Who is the first president of the United States? Please enter full name.');
+            switch (true) {
+                case ques_two === 'George Washington' || ques_two === 'george washington':
+                    alert('Awesome!');
+                    break;
+                case ques_two === '':
+                    alert('No answer');
+                    break;
+                default:
+                    alert('Wrong please try again')
+                    break;
+            }
+        }
+
+        function ques_three() {
+            let ques_three = prompt('France gave the Statue of Liberty to the United States. \n True or False?');
+            switch (true) {
+                case ques_three === 'True' || ques_three === 'true':
+                    alert('Good job!');
+                    break;
+                case ques_three === '':
+                    alert('No answer');
+                    break;
+                default:
+                    alert('Wrong please try again')
+                    break;
+            }
+        }
+
+        function ques_four() {
+            let ques_four = prompt('Why World War II happened? \n a) The Rise of Adolf Hitler \n b) Extreme Nationalism of Germany \n c) Both A and B \n d) None of the above');
+            switch (true) {
+                case ques_four === 'c' || ques_four === 'C':
+                    alert('Right!');
+                    break;
+                case ques_four === '':
+                    alert('No answer');
+                    break;
+                default:
+                    alert('Wrong please try again')
+                    break;
+            }
+        }
+
+        function ques_five() {
+            let ques_five = prompt('Adolf Hitler is still alive and hiding somewhere. \n True of False?');
+            switch (true) {
+                case ques_five === 'False' || ques_five === 'false':
+                    alert('Absolutely!');
+                    break;
+                case ques_five === '':
+                    alert('No answer');
+                    break;
+                default:
+                    alert('Wrong please try again')
+                    break;
+            }
+        }
+
+        function conclusion() {
+            alert('Congratulations ' + name + ', you have reached the end!')
+        }
+
+
+
+    </script>
+</body>
+
+</html>
