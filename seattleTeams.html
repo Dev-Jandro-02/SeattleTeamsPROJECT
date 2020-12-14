@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+
+        // Welcome message.
+
+        let start = welcomeMsg();
+
+        function welcomeMsg() {
+            let welcomeMsg = alert(' Welcome to Seattle\'s Developer Team! \n\n Located at, \n 2142 St. Marcus Street Seatte, Washington.');
+            enterNameMsg = prompt('May you please enter your name for me?');
+            enterNameMsgCondition = (enterNameMsg === '' ? alert('Error please try again.') : greetingMsg());
+        }
+
+        function greetingMsg() {
+            thanksNameMsg = alert(`Thanks ${enterNameMsg}, pleasure to meet you!`);
+            chooseMsg = prompt(' How can I help you today? \n Choose one of the following \n (Information, Apply for Job, Contact)');
+            return chooseMsg;
+        }
+
+
+        // Conditional statement for the chooseMsg variable.
+
+        chooseMsgCondition = () => {
+
+            switch (chooseMsg) {
+                case 'Information':
+                case 'information':
+                    information();
+                    break;
+                case 'Apply for job':
+                case 'apply for job':
+                    apply();
+                    break;
+                case 'Contact':
+                case 'contact':
+                    contact();
+                    break;
+                default:
+                    alert('Error please try again.')
+            }
+        }
+
+        chooseMsgCondition();
+
+
+        // Chosen options and their code.
+
+        function information() {
+            let infoSelected = confirm('Information is selected, please press OK to proceed.');
+            infoCondition = (infoSelected ? alertInfo() : alert('Error please try again.'));
+
+            function alertInfo() {
+                alert('To seek information about us please visit our company\'s webpage \n https://seattlesoftwaredevelopers.com');
+            }
+        }
+
+        function contact() {
+            let contactSelected = confirm('Contact is selected, please press OK to proceed.');
+            contactCondition = (contactSelected ? alertContact() : alert('Error please try again.'));
+
+            function alertContact() {
+                alert('** Contact Information ** \n\n Number: +1 671-431-001 \n Email: seattleteams@gmail.com \n Twitter: @SeattleDevs');
+            }
+        }
+
+
+        // The apply function is where it needs to be focused.
+
+        function apply() {
+            let applySelected = confirm('Apply for Job is selected, please press OK to proceed.');
+            applyCondition = (applySelected ? alertApply() : alert('Error please try again.'));
+
+            function alertApply() {
+                alert(
+                    `** These are the steps before applying, steps are ordered ** 
+                    \n 1) We will ask for your first and last name. 
+                    \n 2) Sex or Gender.
+                    \n 3) Date of Birth.
+                    \n 4) Where are you currently studying or which School/University did you graduated from.
+                    \n 5) Home Address.
+                    \n 6) Phone number or Email address.
+                    \n 7) Write a description of a past job experience.
+                    \n 8) Lastly create a company account.`
+                );
+
+                confirm(' Are you sure you want to apply? \n YOU CANNOT UNDO THIS PROCESS.')
+                    ? queryFullname() : alert('You rejected');
+
+            }
+
+            function queryFullname() {
+                fullname = prompt(' Please enter first and last name. \n Example. Greg Thomas');
+                queryFullnameCondition = (fullname === ''
+                    ? (alert('Please try again'), queryFullname()) : querySexGender());
+            }
+
+            function querySexGender() {
+                gender = prompt('Male or Female.');
+                querySexGenderCondition = (gender === ''
+                    ? (alert('Please try again'), querySexGender()) : queryDOB());
+            }
+
+            function queryDOB() {
+                dob = prompt('Enter date of birth.');
+                queryDOBCondition = (dob === ''
+                    ? (alert('Please try again'), queryDOB()) : queryEducation());
+            }
+
+            function queryEducation() {
+                education = prompt(`Which school are you currently enrolled in or which School/University did you graduated from?`);
+                queryEducationCondition = (education === ''
+                    ? (alert('Please try again'), queryEducation()) : queryAddress());
+            }
+
+            function queryAddress() {
+                address = prompt('Home Address.');
+                queryAddressCondition = (address === ''
+                    ? (alert('Please try again'), queryAddress()) : queryContact());
+            }
+
+            function queryContact() {
+                contac = prompt(`** Contact Information ** \n Please enter a phone number or an email address.`);
+                queryContactCondition = (contac === ''
+                    ? (alert('Please try again'), queryContact()) : queryExperience());
+            }
+
+            function queryExperience() {
+                experience = prompt('Enter a description of a past or current job experience.');
+                queryExperienceCondition = (experience === ''
+                    ? (alert('Please try again'), queryExperience()) : identityConfirmation());
+            }
+
+            // Identity confirmation.
+        }
+
+        function identityConfirmation() {
+            alert(`In the following step, we are going to check through the identity information that you provided. \n
+Please press OK to proceed.`);
+            identityChecker = confirm(
+                `This provided Identity Information is what we are going to review.
+
+We encourage you to please take your time to approve your Identity Information.
+
+If errors and mistakes are able to be seen press CANCEL to restart the procedure meaning you will have to start all over again, otherwise please press OK to proceed.
+
+
+** Identity Information **
+
+Full Name: ${fullname}
+Sex/Gender: ${gender}
+Date og Birth: ${dob}
+Education: ${education}
+Address: ${address}
+Contact Information: ${contac}
+
+Past/Current Job Experience: ${experience}`
+            ) ? accountCreation() : (alert('Procedure Restarted'), welcomeMsg());
+        }
+
+        function accountCreation() {
+            alert('This is the last step, we are now going to create an account company for checking the acceptance of your job position.');
+            username();
+            function username() {
+                user = prompt('Please enter a Username.');
+                userCondition = (user === '' ? (alert('Please try again.'), username()) : password());
+
+            }
+
+            function password() {
+                pass = prompt('Please enter a password.')
+                passCondition = (pass === '' ? (alert('Please try again.'), password()) : accountConfirmation());
+
+            }
+        }
+
+        function accountConfirmation() {
+            confirm(`
+Please take your time for approval.
+
+Press CANCEL if there are any errors or mistakes, Account Creation will be restarted, otherwise press OK to create your account.
+
+
+** Account **
+
+Username: ${user}
+Passowrd: ${pass}
+`) ? accountCreated() : (alert('Account Creation Restarted.'), accountCreation());
+
+            function accountCreated() {
+                alert('Account Created!')
+                alert('Job Application is complete.')
+                alert(
+                    `We will be reviewing your Job Application shortly.
+You may hear from us after a week or earlier.
+
+Thank you for your time ${enterNameMsg}!`)
+            }
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
